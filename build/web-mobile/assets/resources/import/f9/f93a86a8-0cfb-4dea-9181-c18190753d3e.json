@@ -1,0 +1,1 @@
+[1,0,["root","node","data"],[["cc.Prefab",["_name"],2],["cc.Node",["_name","_components","_prefab","_contentSize"],2,9,4,5],["cc.BoxCollider",["tag","node","_size"],2,1,5],["cc.PrefabInfo",["root"],3,1]],[[0,0,2],[1,0,1,2,3,2],[2,0,1,2,2],[3,0,1]],[[0,"Exit"],[1,"Exit",[[2,2,-2,[5,10,10]]],[3,-1],[5,10,10]]],0,[0,0,1,0,1,1,0,2,1,2],[],[],[]]
