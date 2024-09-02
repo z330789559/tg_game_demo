@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "930e7f9d-823c-4011-a917-cd1c64cd1e43",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 81,
+  "height": 80,
+  "platformSettings": {},
+  "subMetas": {
+    "ge_balloon_explode_02": {
+      "ver": "1.0.6",
+      "uuid": "7090dead-c591-4eb7-ba73-8caf49851609",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "930e7f9d-823c-4011-a917-cd1c64cd1e43",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 1.5,
+      "trimX": 27,
+      "trimY": 24,
+      "width": 29,
+      "height": 29,
+      "rawWidth": 81,
+      "rawHeight": 80,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

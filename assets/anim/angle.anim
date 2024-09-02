@@ -1,0 +1,25 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "angle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.6666666666666667,
+  "sample": 3,
+  "speed": 1,
+  "wrapMode": 22,
+  "curveData": {
+    "props": {
+      "angle": [
+        {
+          "frame": 0,
+          "value": 5
+        },
+        {
+          "frame": 1.6666666666666667,
+          "value": -5
+        }
+      ]
+    }
+  },
+  "events": []
+}
