@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b056b105-2a1c-4705-be71-02f9e87fa1a6",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 750,
+  "height": 1408,
+  "platformSettings": {},
+  "subMetas": {
+    "挪车小游戏-游戏设置1": {
+      "ver": "1.0.6",
+      "uuid": "e0751c0a-bac7-4ef7-a49b-2b06fcd37794",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b056b105-2a1c-4705-be71-02f9e87fa1a6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 750,
+      "height": 1408,
+      "rawWidth": 750,
+      "rawHeight": 1408,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

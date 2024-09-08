@@ -38,14 +38,19 @@ export enum ENUM_AUDIO_CLIP {
 export enum ENUM_UI_TYPE {
     MENU = 'MenuLayer',
     MAIN = 'MainLayer',
-    SETTING = 'SettingLayer',
     EXIT = 'ExitLayer',
     OVER = 'OverLayer',
     MORE = 'MoreLayer',
     RANK = 'RankLayer',
     SKILL_SUBMIT = 'SkillSubmitLayer',
     MAIN_LEVEL = 'MainLevelLayer',
+    TASK = "TaskLayer",//任务页面
+    SHOP = "ShopLayer",//商店页面
+    SHARE = "ShareLayer",//邀请页面
+    LEVEL_UI = "LevelUILayer",//通用关卡ui
+    LEVEL_SELECT = "LevelSelectLayer",//选择关卡页面
     EXIT_LEVEL = 'ExitLevelLayer',
+    SETTING = 'SettingLayer',
     LOSE = 'LoseLayer',
     WIN = 'WinLayer'
 }

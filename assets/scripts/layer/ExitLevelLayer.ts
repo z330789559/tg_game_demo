@@ -6,11 +6,12 @@ import AudioManager from "../manager/AudioManager";
 import BaseLayer from "./Baselayer";
 import SdkManager from "../manager/SdkManager";
 import DataManager from "../manager/DataManager";
+import BaseLanguageLayer from "./BaseLanguageLayer";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class ExitLevelLayer extends BaseLayer {
+export default class ExitLevelLayer extends BaseLanguageLayer {
 
     panel: cc.Node = null
     btnClose: cc.Node = null
@@ -18,6 +19,7 @@ export default class ExitLevelLayer extends BaseLayer {
     btnRestart: cc.Node = null
 
     onLoad() {
+        super.onLoad()
         this.panel = cc.find('style/panel', this.node)
         this.btnSubmit = cc.find('btn_submit', this.panel)
         this.btnRestart = cc.find('btn_restart', this.panel)

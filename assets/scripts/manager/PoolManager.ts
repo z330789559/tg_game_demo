@@ -1,6 +1,6 @@
 // Created by carolsail
 
-export default class PoolManager{
+export default class PoolManager {
 
     private static _instance: any = null
 

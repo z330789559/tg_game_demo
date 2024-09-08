@@ -5,6 +5,12 @@ interface IEventItem {
     context: unknown
 }
 
+export enum EventType {
+    OPEN_LEVEL_BTN = "OPEN_LEVEL_BTN",
+    UPDATE_LANGUAGE = "UPDATE_LANGUAGE",
+    GOTO_LEVEL = "GOTO_LEVEL",
+}
+
 export default class EventManager {
     private static _instance: any = null
 
@@ -22,33 +28,33 @@ export default class EventManager {
         return this.getInstance<EventManager>()
     }
 
-    on(name: string, event: Function, context?: unknown){
-        if(this.eventMap.has(name)){
+    on(name: string, event: Function, context?: unknown) {
+        if (this.eventMap.has(name)) {
             const eventArr = this.eventMap.get(name)
-            eventArr.push({event, context})
-        }else{
-            this.eventMap.set(name, [{event, context}])
+            eventArr.push({ event, context })
+        } else {
+            this.eventMap.set(name, [{ event, context }])
         }
     }
 
-    off(name: string, event: Function){
-        if(this.eventMap.has(name)){
+    off(name: string, event: Function) {
+        if (this.eventMap.has(name)) {
             const eventArr = this.eventMap.get(name)
             const index = eventArr.findIndex(item => item.event == event)
-            if(index > -1) eventArr.splice(index, 1)
+            if (index > -1) eventArr.splice(index, 1)
         }
     }
 
-    emit(name: string, ...params: unknown[]){
-        if(this.eventMap.has(name)){
+    emit(name: string, ...params: unknown[]) {
+        if (this.eventMap.has(name)) {
             const eventArr = this.eventMap.get(name)
-            eventArr.forEach(({event, context}) => {
+            eventArr.forEach(({ event, context }) => {
                 context ? event.apply(context, params) : event(params)
             })
         }
     }
 
-    clear(){
+    clear() {
         this.eventMap.clear()
     }
 }

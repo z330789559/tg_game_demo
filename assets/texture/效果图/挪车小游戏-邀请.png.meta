@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8610e239-d7e7-43d9-a005-bf81429c38b4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 750,
+  "height": 1408,
+  "platformSettings": {},
+  "subMetas": {
+    "挪车小游戏-邀请": {
+      "ver": "1.0.6",
+      "uuid": "9f34c7e1-afb7-44db-8de3-edf866f51440",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8610e239-d7e7-43d9-a005-bf81429c38b4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 750,
+      "height": 1408,
+      "rawWidth": 750,
+      "rawHeight": 1408,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

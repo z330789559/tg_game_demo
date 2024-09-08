@@ -7,23 +7,27 @@
 
 import { ENUM_GAME_MODE, ENUM_GAME_STATUS } from '../Enum';
 import Car from '../game/Car';
+import { LanguageType } from '../Languages';
 
 const STORAGE_KEY = 'CC_CAR_MOVE'
 
 export const LEVEL_DATA = [
     {
+        level: 1,
         width: 490, // 摆放场景宽
         height: 490, // 摆放场景高
         unit: 70, // 摆放最小单位
         cars: 4 // 设置数量则按预制体直接摆放
     },
     {
+        level: 2,
         width: 550,
         height: 600,
         unit: 50,
         cars: -1
     },
     {
+        level: 3,
         width: 600,
         height: 900,
         unit: 50,
@@ -33,6 +37,7 @@ export const LEVEL_DATA = [
 
 export const CLEVEL_Data = [
     {
+        level: 1,
         width: 490,
         height: 490,
         unit: 70,
@@ -40,6 +45,7 @@ export const CLEVEL_Data = [
         crash: 3
     },
     {
+        level: 2,
         width: 490,
         height: 490,
         unit: 70,
@@ -47,6 +53,7 @@ export const CLEVEL_Data = [
         crash: 4
     },
     {
+        level: 3,
         width: 490,
         height: 490,
         unit: 70,
@@ -54,6 +61,7 @@ export const CLEVEL_Data = [
         crash: 4
     },
     {
+        level: 4,
         width: 490,
         height: 490,
         unit: 70,
@@ -61,6 +69,7 @@ export const CLEVEL_Data = [
         crash: 5
     },
     {
+        level: 5,
         width: 550,
         height: 600,
         unit: 50,
@@ -68,6 +77,7 @@ export const CLEVEL_Data = [
         crash: 8
     },
     {
+        level: 6,
         width: 490,
         height: 490,
         unit: 70,
@@ -75,6 +85,7 @@ export const CLEVEL_Data = [
         crash: 7
     },
     {
+        level: 7,
         width: 550,
         height: 600,
         unit: 50,
@@ -82,6 +93,7 @@ export const CLEVEL_Data = [
         crash: 5
     },
     {
+        level: 8,
         width: 490,
         height: 490,
         unit: 70,
@@ -89,6 +101,7 @@ export const CLEVEL_Data = [
         crash: 9
     },
     {
+        level: 9,
         width: 490,
         height: 490,
         unit: 70,
@@ -96,6 +109,7 @@ export const CLEVEL_Data = [
         crash: 7
     },
     {
+        level: 10,
         width: 600,
         height: 900,
         unit: 50,
@@ -119,7 +133,8 @@ export default class DataManager {
     static get instance() {
         return this.getInstance<DataManager>()
     }
-
+    /**语言 */
+    language: LanguageType = LanguageType.EN
     // 游戏模式
     mode: ENUM_GAME_MODE = ENUM_GAME_MODE.TIMER
     // 游戏状态
@@ -140,6 +155,7 @@ export default class DataManager {
     // 关卡
     level: number = 1
     levelMax: number = 3
+    levelData: Array<any> = null;
     // 挑战关卡
     clevel: number = 1
     clevelMax: number = 1
@@ -214,7 +230,8 @@ export default class DataManager {
             lastPowerUpdateTime: this.lastPowerUpdateTime,
             secondsRecord: this.secondsRecord,
             clevel: this.clevel,
-            clevelMax: this.clevelMax
+            clevelMax: this.clevelMax,
+            levelData: this.levelData,
         }))
     }
 
@@ -231,6 +248,14 @@ export default class DataManager {
             this.secondsRecord = typeof data.secondsRecord == 'number' ? data.secondsRecord : 604800
             this.clevel = typeof data.clevel == 'number' ? data.clevel : 1
             this.clevelMax = typeof data.clevelMax == 'number' ? data.clevelMax : 1
+            if (data.levelData) {
+                this.levelData = data.levelData;
+            } else {
+                this.levelData = [];
+                for (let i = 0; i < LEVEL_DATA.length; i++) {
+                    this.levelData.push({ level: i + 1, star: 0 })
+                }
+            }
         } catch {
             this.isMusicOn = true
             this.isSoundOn = true
@@ -241,6 +266,10 @@ export default class DataManager {
             this.secondsRecord = 604800
             this.clevel = 1
             this.clevelMax = 1
+            this.levelData = [];
+            for (let i = 0; i < LEVEL_DATA.length; i++) {
+                this.levelData.push({ level: i + 1, star: 0 })
+            }
         }
     }
 }

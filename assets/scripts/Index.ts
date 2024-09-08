@@ -1,7 +1,7 @@
 // Created by carolsail
 
 import { StaticInstance } from './StaticInstance';
-import { ENUM_RESOURCE_TYPE, ENUM_UI_TYPE } from './Enum';
+import { ENUM_GAME_MODE, ENUM_RESOURCE_TYPE, ENUM_UI_TYPE } from './Enum';
 import AudioManager from "./manager/AudioManager";
 import DataManager from './manager/DataManager';
 import ResourceManager from "./manager/ResourceManager";
@@ -31,10 +31,10 @@ export default class Index extends cc.Component {
             const resource = ENUM_RESOURCE_TYPE[index]
             await ResourceManager.instance.loadRes(resource)
         }
-        // 加载ui
-        StaticInstance.uiManager.init()
         // 读档
         DataManager.instance.restore()
+        // 加载ui
+        StaticInstance.uiManager.init()
         // 播放音乐
         AudioManager.instance.playMusic()
         // 加载sdk
@@ -49,9 +49,11 @@ export default class Index extends cc.Component {
         // 离开后体力恢复逻辑
         this.onPowerIncrease()
         // 操作ui
-        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.MENU, true, () => {
-            DataManager.instance.loadingRate = 1
-        })
+        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.LEVEL_UI, true);
+        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.LEVEL_SELECT, true);
+        // StaticInstance.uiManager.toggle(ENUM_UI_TYPE.MENU, true, () => {
+        //     DataManager.instance.loadingRate = 1
+        // })
     }
 
     // 屏幕响应式

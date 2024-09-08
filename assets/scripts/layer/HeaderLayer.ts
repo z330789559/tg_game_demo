@@ -6,18 +6,19 @@ import AudioManager from "../manager/AudioManager";
 import DataManager from "../manager/DataManager";
 import SdkManager from "../manager/SdkManager";
 import ToastManager from "../manager/ToastManager";
-import BaseLayer from "./Baselayer";
+import BaseLanguageLayer from "./BaseLanguageLayer";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class HeaderLayer extends BaseLayer {
+export default class HeaderLayer extends BaseLanguageLayer {
 
     barPower: cc.Node = null
     barKey: cc.Node = null
     timerPower: cc.Node = null
 
     onLoad() {
+        super.onLoad();
         this.barPower = cc.find('bar/power', this.node)
         this.barKey = cc.find('bar/key', this.node)
         this.timerPower = cc.find('timer', this.barPower)
