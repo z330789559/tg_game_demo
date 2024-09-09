@@ -3,6 +3,7 @@
 import { ENUM_AUDIO_CLIP, ENUM_GAME_STATUS, ENUM_UI_TYPE } from "../Enum";
 import AudioManager from "../manager/AudioManager";
 import DataManager from "../manager/DataManager";
+import EventManager, { EventType } from "../manager/EventManager";
 import { StaticInstance } from "../StaticInstance";
 import { formatSeconds } from "../Utils";
 import BaseLayer from "./Baselayer";
@@ -12,15 +13,20 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class MainLayer extends BaseLayer {
 
-    btnPause: cc.Node = null
+    // btnPause: cc.Node = null
     levelUpNode: cc.Node = null
     timerNum: cc.Node = null
     skills: cc.Node
     skillTip: cc.Node
 
+
+    show(): void {
+        super.show()
+        EventManager.instance.emit(EventType.OPEN_LEVEL_BTN)
+    }
     onLoad() {
-        this.btnPause = cc.find('btn_pause', this.node)
-        this.btnPause.on('click', this.onPauseClick, this)
+        // this.btnPause = cc.find('btn_pause', this.node)
+        // this.btnPause.on('click', this.onPauseClick, this)
         this.levelUpNode = cc.find('level_up', this.node)
         this.timerNum = cc.find('bar_seconds/nums', this.node)
         this.skills = cc.find('skills', this.node)
@@ -31,7 +37,7 @@ export default class MainLayer extends BaseLayer {
     }
 
     onDestroy() {
-        this.btnPause.off('click', this.onPauseClick, this)
+        // this.btnPause.off('click', this.onPauseClick, this)
     }
 
     onEnable() { }

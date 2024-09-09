@@ -154,7 +154,7 @@ export default class DataManager {
     ]
     // 关卡
     level: number = 1
-    levelMax: number = 3
+    levelMax: number = 1
     levelData: Array<any> = null;
     // 挑战关卡
     clevel: number = 1

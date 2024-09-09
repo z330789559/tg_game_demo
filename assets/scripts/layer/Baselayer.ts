@@ -17,7 +17,7 @@ export default class BaseLayer extends cc.Component {
     }
     show() {
         this.node.active = true;
-        EventManager.instance.on(EventType.UPDATE_LANGUAGE, this.updateLanguage);
+        EventManager.instance.on(EventType.UPDATE_LANGUAGE, this.updateLanguage, this);
         this.updateLanguage();
     }
 

@@ -4,6 +4,7 @@ import DataManager, { CLEVEL_Data, LEVEL_DATA } from "../manager/DataManager";
 import EventManager, { EventType } from "../manager/EventManager";
 import PoolManager from "../manager/PoolManager";
 import SdkManager from "../manager/SdkManager";
+import SpriteManager from "../manager/SpriteManager";
 import ToastManager from "../manager/ToastManager";
 import { StaticInstance } from "../StaticInstance";
 import BaseItem from "./BaseItem";
@@ -21,37 +22,71 @@ enum PanelType {
     Tiaozhan,
 }
 
+/**普通关卡 */
 class LevelItemPuTong extends BaseItem {
     levelLabel: cc.Label = null;
     sprite: cc.Sprite = null;
     nowData: any = null;
+    unLock: cc.Node = null;
     init(): void {
         this.levelLabel = this.node.getChildByName('label').getComponent(cc.Label);
+        this.unLock = this.node.getChildByName("unlock");
         this.sprite = this.node.getComponent(cc.Sprite);
         this.onTouch(this.node, this.onTouchClick, this);
     }
     setData(data: any): void {
         this.nowData = data;
         this.levelLabel.string = data.level;
+        if (this.nowData.level < DataManager.instance.clevelMax) {//已完成
+            this.sprite.spriteFrame = SpriteManager.custemIcon[1];
+            this.unLock.active = false;
+        } else if (this.nowData.level == DataManager.instance.clevelMax) {//已开启
+            this.sprite.spriteFrame = SpriteManager.custemIcon[0];
+            this.unLock.active = false;
+        } else {//未解锁
+            this.sprite.spriteFrame = SpriteManager.custemIcon[0];
+            this.unLock.active = true;
+        }
     }
     private onTouchClick() {
+        if (this.nowData.level > DataManager.instance.clevelMax) {
+            ToastManager.instance.show('关卡未解锁，请继续努力', { gravity: 'TOP', bg_color: cc.color(226, 69, 109, 255) })
+            return;
+        }
         EventManager.instance.emit(EventType.GOTO_LEVEL, PanelType.Putong, this.nowData.level)
     }
 }
+/**挑战关卡 */
 class LevelItemTiaoZhan extends BaseItem {
     levelLabel: cc.Label = null;
     sprite: cc.Sprite = null;
     nowData: any = null;
+    unLock: cc.Node = null;
     init(): void {
         this.levelLabel = this.node.getChildByName('label').getComponent(cc.Label);
+        this.unLock = this.node.getChildByName('unlock');
         this.sprite = this.node.getComponent(cc.Sprite);
         this.onTouch(this.node, this.onTouchClick, this);
     }
     setData(data: any): void {
         this.nowData = data;
         this.levelLabel.string = data.level;
+        if (this.nowData.level < DataManager.instance.levelMax) {//已完成
+            this.sprite.spriteFrame = SpriteManager.custemTZIcon[this.nowData.star + 1];
+            this.unLock.active = false;
+        } else if (this.nowData.level == DataManager.instance.levelMax) {//已开启
+            this.sprite.spriteFrame = SpriteManager.custemTZIcon[1];
+            this.unLock.active = false;
+        } else {//未解锁
+            this.sprite.spriteFrame = SpriteManager.custemTZIcon[0];
+            this.unLock.active = true;
+        }
     }
     private onTouchClick() {
+        if (this.nowData.level > DataManager.instance.levelMax) {
+            ToastManager.instance.show('关卡未解锁，请继续努力', { gravity: 'TOP', bg_color: cc.color(226, 69, 109, 255) })
+            return;
+        }
         EventManager.instance.emit(EventType.GOTO_LEVEL, PanelType.Tiaozhan, this.nowData.level);
     }
 }
@@ -68,6 +103,7 @@ export default class LevelSelectLayer extends BaseLanguageLayer {
     labelPuTong: cc.Node = null;
     labelTiaoZhan: cc.Node = null;
     panelType: PanelType = null;
+    mode: cc.Sprite = null;
 
     onLoad() {
         super.onLoad()
@@ -75,6 +111,7 @@ export default class LevelSelectLayer extends BaseLanguageLayer {
         this.btnClose = cc.find('close', this.panel);
         this.levelItemPuTong = cc.find('levelItemPuTong', this.node);
         this.levelItemTiaoZhan = cc.find('levelItemTiaoZhan', this.node);
+        this.mode = cc.find('moshi', this.panel).getComponent(cc.Sprite);
         this.btnPuTong = cc.find('moshi/btnputong', this.panel);
         this.btnTiaoZhan = cc.find('moshi/btntiaozhan', this.panel);
         this.labelPuTong = cc.find('moshi/label1', this.panel);
@@ -96,11 +133,13 @@ export default class LevelSelectLayer extends BaseLanguageLayer {
         if (this.panelType == PanelType.Putong) {
             this.labelPuTong.active = true;
             this.labelTiaoZhan.active = false;
+            this.mode.spriteFrame = SpriteManager.ModelSprite[0];
             this.removeItem();
             this.CreateListItem(this.content, this.levelItemPuTong, CLEVEL_Data, LevelItemPuTong)
         } else {
             this.labelPuTong.active = false;
             this.labelTiaoZhan.active = true;
+            this.mode.spriteFrame = SpriteManager.ModelSprite[1];
             this.removeItem();
             this.CreateListItem(this.content, this.levelItemTiaoZhan, DataManager.instance.levelData, LevelItemTiaoZhan)
         }

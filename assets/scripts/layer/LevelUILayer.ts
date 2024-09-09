@@ -3,6 +3,7 @@ import { Languages } from "../Languages";
 import AudioManager from "../manager/AudioManager";
 import DataManager from "../manager/DataManager";
 import EventManager, { EventType } from "../manager/EventManager";
+import SpriteManager from "../manager/SpriteManager";
 import { StaticInstance } from "../StaticInstance";
 import BaseLanguageLayer from "./BaseLanguageLayer";
 import BaseLayer from "./Baselayer";
@@ -46,19 +47,17 @@ export default class LevelUILayer extends BaseLanguageLayer {
         this.onTouch(this.btnShop, this.onShopClick, this);
         this.onTouch(this.btnShare, this.onShareClick, this);
         this.onTouch(this.btnZhuanQv, this.onZhuanQvClick, this);
-        EventManager.instance.on(EventType.OPEN_LEVEL_BTN, this.openLevelBtn);
+        EventManager.instance.on(EventType.OPEN_LEVEL_BTN, this.openLevelBtn, this);
     }
 
     start() {
         this.btnSkills.active = false;
-        this.btnPause.active = false;
     }
     private openLevelBtn() {
         this.btnSkills.active = true;
-        this.btnPause.active = true;
     }
     onPauseClick() {
-        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.EXIT_LEVEL)
+        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SETTING)
     }
     onLevelClick() {
         StaticInstance.uiManager.toggle(ENUM_UI_TYPE.LEVEL_SELECT)
@@ -83,6 +82,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SHOP, false)
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SHARE, false)
         }
+        this.updateBtnState();
     }
     onShopClick() {//商店
         if (StaticInstance.uiManager.isActive(ENUM_UI_TYPE.SHOP)) {
@@ -92,6 +92,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.TASK, false)
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SHARE, false)
         }
+        this.updateBtnState();
     }
     onShareClick() {//邀请
         if (StaticInstance.uiManager.isActive(ENUM_UI_TYPE.SHARE)) {
@@ -101,6 +102,16 @@ export default class LevelUILayer extends BaseLanguageLayer {
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SHOP, false)
             StaticInstance.uiManager.toggle(ENUM_UI_TYPE.TASK, false)
         }
+        this.updateBtnState();
+    }
+
+    private updateBtnState() {
+        let index = StaticInstance.uiManager.isActive(ENUM_UI_TYPE.TASK) ? 1 : 0;
+        this.btnRenwu.getComponent(cc.Sprite).spriteFrame = SpriteManager.taskIcon[index];
+        index = StaticInstance.uiManager.isActive(ENUM_UI_TYPE.SHOP) ? 1 : 0;
+        this.btnShop.getComponent(cc.Sprite).spriteFrame = SpriteManager.shopIcon[index];
+        index = StaticInstance.uiManager.isActive(ENUM_UI_TYPE.SHARE) ? 1 : 0;
+        this.btnShare.getComponent(cc.Sprite).spriteFrame = SpriteManager.shareIcon[index];
     }
 
     // update (dt) {}

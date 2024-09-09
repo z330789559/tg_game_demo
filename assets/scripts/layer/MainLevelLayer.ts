@@ -3,6 +3,7 @@
 import { ENUM_AUDIO_CLIP, ENUM_GAME_STATUS, ENUM_UI_TYPE } from "../Enum";
 import AudioManager from "../manager/AudioManager";
 import DataManager, { CLEVEL_Data } from "../manager/DataManager";
+import EventManager, { EventType } from "../manager/EventManager";
 import SdkManager from "../manager/SdkManager";
 import ToastManager from "../manager/ToastManager";
 import { StaticInstance } from "../StaticInstance";
@@ -13,21 +14,19 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class MainLevelLayer extends BaseLayer {
 
-    btnPause: cc.Node = null
+    // btnPause: cc.Node = null
     // btnPass: cc.Node = null
     crashNum: cc.Node = null
     tip: cc.Node = null
 
     show(): void {
         super.show();
-        StaticInstance.uiManager.toggle(ENUM_UI_TYPE.LEVEL_UI, true, () => {
-
-        })
+        EventManager.instance.emit(EventType.OPEN_LEVEL_BTN)
     }
 
     onLoad() {
-        this.btnPause = cc.find('btn_pause', this.node)
-        this.btnPause.on('click', this.onPauseClick, this)
+        // this.btnPause = cc.find('btn_pause', this.node)
+        // this.btnPause.on('click', this.onPauseClick, this)
         // this.btnPass = cc.find('btn_pass', this.node)
         // this.btnPass.on('click', this.onPassClick, this)
         this.crashNum = cc.find('bar_crash/nums', this.node)

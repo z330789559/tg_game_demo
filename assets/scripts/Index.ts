@@ -6,6 +6,7 @@ import AudioManager from "./manager/AudioManager";
 import DataManager from './manager/DataManager';
 import ResourceManager from "./manager/ResourceManager";
 import SdkManager from './manager/SdkManager';
+import { allJson } from './AlljsonData';
 
 const { ccclass, property } = cc._decorator;
 
