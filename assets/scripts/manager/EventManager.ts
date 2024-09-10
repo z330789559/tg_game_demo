@@ -37,11 +37,18 @@ export default class EventManager {
         }
     }
 
-    off(name: string, event: Function) {
+    off(name: string, event: Function, context?: unknown) {
+        // if (this.eventMap.has(name)) {
+        //     const eventArr = this.eventMap.get(name)
+        //     const index = eventArr.findIndex(item => item.event == event)
+        //     if (index > -1) eventArr.splice(index, 1)
+        // }
         if (this.eventMap.has(name)) {
-            const eventArr = this.eventMap.get(name)
-            const index = eventArr.findIndex(item => item.event == event)
-            if (index > -1) eventArr.splice(index, 1)
+            const eventArr = this.eventMap.get(name);
+            const index = eventArr.findIndex(item =>
+                item.event === event && item.context === context
+            );
+            if (index > -1) eventArr.splice(index, 1);
         }
     }
 

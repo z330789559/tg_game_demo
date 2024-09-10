@@ -23,10 +23,10 @@ export default class BaseLayer extends cc.Component {
 
     hide() {
         this.node.active = false;
-        EventManager.instance.off(EventType.UPDATE_LANGUAGE, this.updateLanguage);
+        EventManager.instance.off(EventType.UPDATE_LANGUAGE, this.updateLanguage, this);
     }
     /**语言更新 */
-    updateLanguage() { }
+    protected updateLanguage() { }
 
     zoomIn(node: cc.Node, scale: number = 1.5, speed: number = 0.3) {
         node.setScale(scale)

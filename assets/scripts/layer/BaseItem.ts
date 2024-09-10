@@ -37,7 +37,7 @@ export default class BaseItem extends cc.Component {
         EventManager.instance.on(EventType.UPDATE_LANGUAGE, this.updateLanguage, this);
     }
     protected onDisable(): void {
-        EventManager.instance.off(EventType.UPDATE_LANGUAGE, this.updateLanguage);
+        EventManager.instance.off(EventType.UPDATE_LANGUAGE, this.updateLanguage, this);
     }
     updateLanguage() {
         for (let i = 0; i < this.allLabels.length; i++) {
