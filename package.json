@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@ton-community/assets-sdk": "^0.0.5",
+    "@ton/cocos-sdk": "^0.0.1-beta.1",
     "@ton/ton": "^15.0.0",
     "@tonconnect/ui": "^2.0.9",
-    "@types/node": "^22.5.4"
+    "@types/node": "^22.5.4",
+    "@types/telegram-web-app": "^7.8.1"
   }
 }

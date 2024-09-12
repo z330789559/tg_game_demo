@@ -8,8 +8,11 @@ import ResourceManager from "./manager/ResourceManager";
 import SdkManager from './manager/SdkManager';
 import { allJson } from './AlljsonData';
 import { config, type TonAddressConfig } from './Config';
-import  * as cocosSdk  from './cocos-ton';
-import { TelegramWebApp,  } from './cocos-telegram-miniapps/scripts/telegram-web';
+// import  * as cocosSdk  from './cocos-ton';
+// import { TelegramWebApp,  } from './cocos-telegram-miniapps/scripts/telegram-web';
+import cocosSdk = require('@ton/cocos-sdk')
+const TelegramWebApp = require('telegram-web-app')
+//const TelegramWebApp = window['Telegram'].WebApp
 const { ccclass, property } = cc._decorator;
 
 @ccclass
