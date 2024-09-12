@@ -12,7 +12,7 @@
   "webOrientation": "portrait",
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
-  "mainCompressionType": "subpackage",
+  "mainCompressionType": "none",
   "mainIsRemote": false,
   "optimizeHotUpdate": false,
   "md5Cache": false,
@@ -51,5 +51,9 @@
     "recordPath": ""
   },
   "appBundle": false,
-  "agreements": {}
+  "agreements": {},
+  "openharmony": {
+    "packageName": "com.cocos.openharmony",
+    "REMOTE_SERVER_ROOT": ""
+  }
 }

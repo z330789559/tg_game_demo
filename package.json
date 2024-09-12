@@ -1,0 +1,18 @@
+{
+  "name": "move-car-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ton-community/assets-sdk": "^0.0.5",
+    "@ton/ton": "^15.0.0",
+    "@tonconnect/ui": "^2.0.9",
+    "@types/node": "^22.5.4"
+  }
+}
