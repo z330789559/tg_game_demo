@@ -5,7 +5,7 @@ export const config:{
     backendUrl: string,
     URL_YOU_ASSIGNED_TO_YOUR_APP: `${string}://${string}`
 } ={
-    backendUrl:"https://85eb-103-231-84-117.ngrok-free.app",
+    backendUrl:"http://18.136.79.134:3000",
    URL_YOU_ASSIGNED_TO_YOUR_APP: `${protool}://${host}`
 
 }

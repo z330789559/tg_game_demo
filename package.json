@@ -15,6 +15,7 @@
     "@ton/ton": "^15.0.0",
     "@tonconnect/ui": "^2.0.9",
     "@types/node": "^22.5.4",
-    "@types/telegram-web-app": "^7.8.1"
+    "@types/telegram-web-app": "^7.8.1",
+    "telegram-web-app": "^0.0.0"
   }
 }

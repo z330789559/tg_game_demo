@@ -33,10 +33,7 @@ export default class Index extends cc.Component {
         this.node.getChildByName('UI').opacity = 255
         cc.view.setResizeCallback(() => this.responsive())
         this.responsive()
-        TelegramWebApp.Instance.init().then(res => {
-            console.log("telegram web app init : ", res.success);
-        }).catch(err => { console.error(err); });
-
+ 
         this.loadWallet().then(res => {
             if (!res) {
                 console.error('load wallet failed!')
@@ -193,7 +190,7 @@ export default class Index extends cc.Component {
                 product: params.product
             }),
         }).then(response => {
-            return response.json();
+            return  response.json();
         }).then(value => {
             console.log("starts invoice : ", value);
             if (value.ok) {
@@ -209,6 +206,13 @@ export default class Index extends cc.Component {
     }
 
     async start() {
+        if(TelegramWebApp){
+        TelegramWebApp.Instance.init().then(res => {
+            console.log("telegram web app init : ", res.success);
+            this._initTonUI(this._config);
+        }).catch(err => { console.error(err); });
+    }
+
         // 加载资源
         for (const index in ENUM_RESOURCE_TYPE) {
             const resource = ENUM_RESOURCE_TYPE[index]
