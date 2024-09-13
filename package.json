@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cocos-sdk-cjs":"0.0.5",
     "@types/node": "^22.5.4",
-    "@types/telegram-web-app": "^7.8.1"
+    "@types/telegram-web-app": "^7.8.1",
+    "cocos-sdk-cjs": "0.0.5",
+    "tonweb": "^0.0.66"
   }
 }

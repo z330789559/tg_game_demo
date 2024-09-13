@@ -9,6 +9,7 @@ import ToastManager from "../manager/ToastManager";
 import { StaticInstance } from "../StaticInstance";
 import BaseLayer from "./Baselayer";
 
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass

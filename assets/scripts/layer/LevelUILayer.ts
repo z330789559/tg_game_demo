@@ -8,7 +8,10 @@ import { StaticInstance } from "../StaticInstance";
 import BaseLanguageLayer from "./BaseLanguageLayer";
 import BaseLayer from "./Baselayer";
 
+import {TonConnectUi , type Transaction} from '../cocos-telegram-miniapps/telegram-ui';
+import { WebTon } from "../cocos-telegram-miniapps/webton";
 
+// import * as TonWeb from "tonweb";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -24,9 +27,14 @@ export default class LevelUILayer extends BaseLanguageLayer {
     btnRenwu: cc.Node = null;
     btnShop: cc.Node = null;
     btnShare: cc.Node = null;
+    btnWallet: cc.Node = null;
+    btnSend: cc.Node = null;
+    connectLabel: cc.Label = null;
 
     onLoad() {
+   
         super.onLoad();
+        EventManager.instance.on(EventType.CONNECT_COMPLETE, this.subscribe, this);
         this.btnPause = cc.find('btn_pause', this.node)
         this.btnLevel = cc.find('btn_level', this.node)
         this.btnSkills = cc.find('skills', this.node);
@@ -38,6 +46,9 @@ export default class LevelUILayer extends BaseLanguageLayer {
         this.btnRenwu = cc.find('btnrenwu', this.btnDown);
         this.btnShop = cc.find('btnshop', this.btnDown);
         this.btnShare = cc.find('btnshare', this.btnDown);
+        this.btnWallet = cc.find('btn_wallet', this.node);
+        this.btnSend = cc.find('btn_send', this.node);
+        this.connectLabel = cc.find('btn_wallet/connect', this.node);
         this.onTouch(this.btnPause, this.onPauseClick, this);
         this.onTouch(this.btnLevel, this.onLevelClick, this);
         this.onTouch(this.btnSuoduan, this.onSuoDuanClick, this);
@@ -47,14 +58,61 @@ export default class LevelUILayer extends BaseLanguageLayer {
         this.onTouch(this.btnShop, this.onShopClick, this);
         this.onTouch(this.btnShare, this.onShareClick, this);
         this.onTouch(this.btnZhuanQv, this.onZhuanQvClick, this);
+        this.onTouch(this.btnWallet, this.openWallet, this);
+        this.onTouch(this.btnSend, this.sendTon, this);
         EventManager.instance.on(EventType.OPEN_LEVEL_BTN, this.openLevelBtn, this);
+
     }
 
+
+
+
+  private async sendTon() {
+   await  TonConnectUi.Instance.sendTransaction({
+        amount: "100000",
+        payload: await WebTon.Instance.createMessagePayload("hello"),
+        callBack: (result) => {
+            console.log('sendTon',result);
+        }
+    });
+
+  }
+    private subscribe(success: boolean) {
+         console.log('subscribe success');
+         this.updateConnect();
+
+
+    }
+    private setWalletUi(address:string){
+        console.log('setWalletUi',address);
+        if(this.connectLabel){
+            this.connectLabel.string =address;
+        }
+    }
+
+     private async  openWallet() {
+
+       await TonConnectUi.Instance.openModal();
+
+     }
     start() {
         this.btnSkills.active = false;
     }
     private openLevelBtn() {
         this.btnSkills.active = true;
+    }
+
+    public updateConnect() {
+        console.log('updateConnect');
+        if (TonConnectUi.Instance.isConnected()) {
+            const address = TonConnectUi.Instance.account().address;
+            const add=TonConnectUi.Instance.parseRaw(address);
+
+            this.setWalletUi(add);
+                
+        } else {
+            this.setWalletUi("Connect1");
+        }
     }
     onPauseClick() {
         StaticInstance.uiManager.toggle(ENUM_UI_TYPE.SETTING)

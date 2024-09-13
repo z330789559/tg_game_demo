@@ -9,6 +9,7 @@ export enum EventType {
     OPEN_LEVEL_BTN = "OPEN_LEVEL_BTN",
     UPDATE_LANGUAGE = "UPDATE_LANGUAGE",
     GOTO_LEVEL = "GOTO_LEVEL",
+    CONNECT_COMPLETE = "CONNECT_COMPLETE",
 }
 
 export default class EventManager {

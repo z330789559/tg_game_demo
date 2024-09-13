@@ -25,7 +25,7 @@ export class TonConnectUi {
             console.error("ton ui not inited!");
             return false;
         }
-        return this._tgConnect.isConnected();
+        return this._tgConnect.connected;
     }
   public disconnect() {
 
@@ -44,10 +44,10 @@ export class TonConnectUi {
 
     }
     public parseRaw(raw: string) {
-        return this._tgConnect.parseRaw(raw);
+        return raw;
     }
     private _tgConnect: any = null;
-    public async init(manifestUrl: string, buttonRootId: string,tonWallet: string,  updateConnect:()=>void) : Promise<{success: boolean}> {
+    public async init(manifestUrl: string, tonWallet: string, language?: string) : Promise<{success: boolean}> {
         this.tonWallet = tonWallet;
         this._tgConnect =  await new Promise<any>((resolve, reject) => {
             // if (sys.platform === sys.Platform.MOBILE_BROWSER || sys.platform === sys.Platform.DESKTOP_BROWSER) {
@@ -58,12 +58,15 @@ export class TonConnectUi {
                     const intervalId = setInterval(() => {
                         if ((window as any).TON_CONNECT_UI) {
                             console.log("loading telegram web app sdk success!");
-                            resolve( new (window as any).TON_CONNECT_UI.TonConnect(
+                          const tonConnect =  new window['TON_CONNECT_UI'].TonConnectUI(
                                 {
-                                    manifestUrl: manifestUrl,
-                                    buttonRootId: buttonRootId
+                                    manifestUrl: manifestUrl
                                 }
-                            ));
+                            )
+                            tonConnect.uiOptions = {
+                                language: language||'en',
+                            };
+                            resolve(tonConnect);
                             clearInterval(intervalId);
                         }
                     }, 100);
@@ -73,17 +76,8 @@ export class TonConnectUi {
             // }
         });
 
-        if (this._tgConnect) {
-            const unsubscribeModal = this._tgConnect.onStatusChange(state => {
-                console.log("model state changed! : ", state);
-    
-                updateConnect();
-            });
-            const unsubscribeConnectUI = this._tgConnect.onStatusChange(info => {
-                console.log("wallet info status changed : ", info);
-        
-                updateConnect();
-            });
+        if (this._tgConnect ) {
+      
             return Promise.resolve({success: true});
         } else {
             return Promise.resolve({success: false});
@@ -92,27 +86,50 @@ export class TonConnectUi {
       
 
     }
+    public  subscribeWallet(updateConnect:()=>void) {
+        console.log("subscribe wallet");
+        if(this._tgConnect) {
+        const unsubscribeModal = this._tgConnect.onStatusChange(state => {
+            console.log("model state changed! : ", state);
+
+            updateConnect();
+        });
+        const unsubscribeConnectUI = this._tgConnect.onStatusChange(info => {
+            console.log("wallet info status changed : ", info);
+    
+            updateConnect();
+        });
+    }
+
+
+
+    }
 
     public async openModal() {
         if (!this._tgConnect) return;
-        console.log("open modal", this._tgConnect.isConnected());
+        console.log("open modal", await this._tgConnect.getWallets());
 
-        if (this._tgConnect.isConnected()) {
+        if (this._tgConnect.connected) {
             this._tgConnect.disconnect();
         } else {
             this._tgConnect.openModal();
         }
     }
 
+    private createPayload() {
+
+        return '';
+    }
+
     public async sendTransaction(args:Transaction ) {
     const transaction = {
         validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
         messages: [
-     
             {
                 address: this.tonWallet ,
                 amount: args.amount,
-                 payload: "base64bocblahblahblah==" // just for instance. Replace with your transaction payload or remove
+                payload: args.payload // just for instance. Replace with your transaction payload or remove
+
             }
         ]
     }

@@ -6,11 +6,14 @@ import AudioManager from "./manager/AudioManager";
 import DataManager from './manager/DataManager';
 import ResourceManager from "./manager/ResourceManager";
 import SdkManager from './manager/SdkManager';
+import  EventManager , {EventType} from "./manager/EventManager"
 import { allJson } from './AlljsonData';
 import { config, type TonAddressConfig } from './Config';
 // import  * as cocosSdk  from './cocos-ton';
 import { TelegramWebApp,  } from './cocos-telegram-miniapps/telegram-web';
 import {TonConnectUi , type Transaction} from './cocos-telegram-miniapps/telegram-ui';
+import { WebTon } from './cocos-telegram-miniapps/webton';
+
 //const TelegramWebApp = window['Telegram'].WebApp
 const { ccclass, property } = cc._decorator;
 
@@ -19,8 +22,7 @@ export default class Index extends cc.Component {
     @property
     collisionManagerDebug: boolean = false;
 
-    @property(cc.Label)
-    connectLabel: cc.Label = null;
+
 
     private _bTonInit: boolean = false;
     private _connectUI;
@@ -42,6 +44,9 @@ export default class Index extends cc.Component {
             }
             this._initTonUI();
         }).catch(err => { console.error(err); });
+        WebTon.Instance.init().then(res => {
+            console.log("web ton init : ", res.success);
+        })
         DataManager.instance.loadingRate = 0
         // 碰撞系统
         const colManager = cc.director.getCollisionManager();
@@ -50,10 +55,12 @@ export default class Index extends cc.Component {
     }
 
     async _initTonUI() {
-        TonConnectUi.Instance.init('https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json', 'ton-connect-button', () => {
-            console.log('ton connect ui inited!');
-        }).then(res => {
+        TonConnectUi.Instance.init('https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json',this._config.tonAddress, 'en').then(res => {
             console.log("ton connect ui init : ", res.success);
+            TonConnectUi.Instance.subscribeWallet(()=>{
+                console.log("wallet change");
+                EventManager.instance.emit(EventType.CONNECT_COMPLETE, res.success);
+            })
         })
     }
 
@@ -65,26 +72,8 @@ export default class Index extends cc.Component {
         return TonConnectUi.Instance.isConnected();
     }
 
-    private updateConnect() {
-        if (TonConnectUi.Instance.isConnected()) {
-            const address = TonConnectUi.Instance.account().address;
-            const add=TonConnectUi.Instance.parseRaw(address);
+ 
 
-            this.setWalletUi(add.toString( {testOnly: true, bounceable: false }).substring(0, 6) + '...');
-            if(this.connectLabel){
-                this.connectLabel.string = add.toString( {testOnly: true, bounceable: false }).substring(0, 6) + '...';
-            }
-                
-        } else {
-            this.setWalletUi("Connect");
-        }
-    }
-
-    private setWalletUi(address:string){
-        if(this.connectLabel){
-            this.connectLabel.string =address;
-        }
-    }
 
     public async openModal() {
         if (!TonConnectUi.Instance) return;
