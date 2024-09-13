@@ -9,9 +9,8 @@ import SdkManager from './manager/SdkManager';
 import { allJson } from './AlljsonData';
 import { config, type TonAddressConfig } from './Config';
 // import  * as cocosSdk  from './cocos-ton';
-// import { TelegramWebApp,  } from './cocos-telegram-miniapps/scripts/telegram-web';
-import cocosSdk = require('@ton/cocos-sdk')
-const TelegramWebApp = require('telegram-web-app')
+import { TelegramWebApp,  } from './cocos-telegram-miniapps/telegram-web';
+import {TonConnectUi , type Transaction} from './cocos-telegram-miniapps/telegram-ui';
 //const TelegramWebApp = window['Telegram'].WebApp
 const { ccclass, property } = cc._decorator;
 
@@ -24,7 +23,6 @@ export default class Index extends cc.Component {
     connectLabel: cc.Label = null;
 
     private _bTonInit: boolean = false;
-    private _cocosGameFi: any;
     private _connectUI;
     //ton 和jetton地址， ton是买东西付款到的地址
     private _config: TonAddressConfig;
@@ -33,12 +31,16 @@ export default class Index extends cc.Component {
         this.node.getChildByName('UI').opacity = 255
         cc.view.setResizeCallback(() => this.responsive())
         this.responsive()
- 
+        TelegramWebApp.Instance.init().then(res => {
+            console.log("telegram web app init : ", res.success);
+        }).catch(err => { console.error(err); });
+       
         this.loadWallet().then(res => {
             if (!res) {
                 console.error('load wallet failed!')
                 return;
             }
+            this._initTonUI();
         }).catch(err => { console.error(err); });
         DataManager.instance.loadingRate = 0
         // 碰撞系统
@@ -47,59 +49,26 @@ export default class Index extends cc.Component {
         if (this.collisionManagerDebug) colManager.enabledDebugDraw = true;
     }
 
-    async _initTonUI(addressConfig: TonAddressConfig) {
-        let connector = new cocosSdk.TonConnectUI({
-            manifestUrl: 'https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json',
-            restoreConnection: true,
-            actionsConfiguration:{
-                twaReturnUrl: config.URL_YOU_ASSIGNED_TO_YOUR_APP ,
-            }
-            
-        });
-        this._cocosGameFi = await cocosSdk.GameFi.create({
-            connector: connector,
-            network: 'mainnet',
-             // where in-game purchases come to
-                merchant: {
-                    // in-game jetton purchases (FLAP)
-                    // use address you got running `assets-cli deploy-jetton`
-                    jettonAddress:  addressConfig.jettonAddress  ,
-                    // in-game TON purchases
-                    // use master wallet address you got running `assets-cli setup-env`
-                    tonAddress:  addressConfig.tonAddress
-                }
-
-        });
-        this._connectUI = this._cocosGameFi.walletConnector;
-
-        const unsubscribeModal = this._connectUI.onModalStateChange(state => {
-            console.log("model state changed! : ", state);
-
-            this.updateConnect();
-        });
-
-        const unsubscribeConnectUI = this._connectUI.onStatusChange(info => {
-            console.log("wallet info status changed : ", info);
-
-            this.updateConnect();
-        });
-
-        this._bTonInit = true;
-        this.updateConnect();
+    async _initTonUI() {
+        TonConnectUi.Instance.init('https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json', 'ton-connect-button', () => {
+            console.log('ton connect ui inited!');
+        }).then(res => {
+            console.log("ton connect ui init : ", res.success);
+        })
     }
 
     public isConnected(): boolean {
-        if (!this._connectUI) {
+        if (!TonConnectUi.Instance) {
             console.error("ton ui not inited!");
             return false;
         }
-        return this._connectUI.connected;
+        return TonConnectUi.Instance.isConnected();
     }
 
     private updateConnect() {
-        if (this.isConnected()) {
-            const address = this._connectUI.account.address;
-            const add =cocosSdk.Address.parseRaw(address);
+        if (TonConnectUi.Instance.isConnected()) {
+            const address = TonConnectUi.Instance.account().address;
+            const add=TonConnectUi.Instance.parseRaw(address);
 
             this.setWalletUi(add.toString( {testOnly: true, bounceable: false }).substring(0, 6) + '...');
             if(this.connectLabel){
@@ -118,13 +87,13 @@ export default class Index extends cc.Component {
     }
 
     public async openModal() {
-        if (!this._bTonInit) return;
-        console.log("open modal", this.isConnected(), this._connectUI);
+        if (!TonConnectUi.Instance) return;
+        console.log("open modal", this.isConnected());
 
-        if (this.isConnected()) {
-            this._connectUI.disconnect();
+        if (TonConnectUi.Instance.isConnected()) {
+            TonConnectUi.Instance.disconnect();
         } else {
-            this._connectUI.openModal();
+            TonConnectUi.Instance.openModal();
         }
     }
      //open the wallet
@@ -152,11 +121,11 @@ export default class Index extends cc.Component {
     }
        
     }
-    public onBuyWithTon(amount: number) {
-        const tonTransferReq = {
-            amount: cocosSdk.toNano(amount)
+    public onBuyWithTon(amount: string) {
+        const tonTransferReq: Transaction= {
+            amount: TonConnectUi.Instance.toNano(amount),
         };
-        this._cocosGameFi.buyWithTon(tonTransferReq);
+         TonConnectUi.Instance.sendTransaction(tonTransferReq);
     }
     public onShare() {
         let userId = '';
@@ -206,12 +175,6 @@ export default class Index extends cc.Component {
     }
 
     async start() {
-        if(TelegramWebApp){
-        TelegramWebApp.Instance.init().then(res => {
-            console.log("telegram web app init : ", res.success);
-            this._initTonUI(this._config);
-        }).catch(err => { console.error(err); });
-    }
 
         // 加载资源
         for (const index in ENUM_RESOURCE_TYPE) {

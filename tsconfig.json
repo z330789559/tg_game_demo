@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "lib": [ "es2015", "es2017", "dom" ],
-    "target": "es5",
+    "target": "ES2015",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "outDir": "temp/vscode-dist",
     "forceConsistentCasingInFileNames": true
+
   },
+  "include": [
+    "assets/**/*.ts",
+  ],
   "exclude": [
     "node_modules",
     "library",
