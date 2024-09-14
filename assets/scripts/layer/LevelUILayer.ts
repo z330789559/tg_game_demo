@@ -47,7 +47,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
         this.btnShare = cc.find('btnshare', this.btnDown);
         this.btnWallet = cc.find('btn_wallet', this.node);
         this.btnSend = cc.find('btn_send', this.node);
-        this.connectLabel = cc.find('btn_wallet/connect', this.node);
+        this.connectLabel = cc.find('btn_wallet/connect', this.node).getComponent(cc.Label);
         this.onTouch(this.btnPause, this.onPauseClick, this);
         this.onTouch(this.btnLevel, this.onLevelClick, this);
         this.onTouch(this.btnSuoduan, this.onSuoDuanClick, this);
@@ -85,16 +85,15 @@ export default class LevelUILayer extends BaseLanguageLayer {
         console.log('setWalletUi',address);
 
         if(this.connectLabel){
-          const label =  this.connectLabel.getComponent(cc.Label); ;
-            if(label){
+   
                 if(address=="Connect"){
-                label.string = address;
+                    this.connectLabel.string = address;
                 }else{
                     const longAddress = await WebTon.Instance.parseAddress(address);
                   
-                    label.string =  longAddress.length>10?longAddress.substr(0,10)+'...':longAddress;
+                    this.connectLabel.string =  longAddress.length>10?longAddress.substr(0,10)+'...':longAddress;
                 }
-        }
+        
     }
     }
 

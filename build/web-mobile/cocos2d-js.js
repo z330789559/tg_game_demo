@@ -69685,4 +69685,3 @@
     _global["CocosEngine"] = cc.ENGINE_VERSION = engineVersion;
   }), {} ]
 }, {}, [ 331 ]);
-//# sourceMappingURL=cocos2d-js.js.map

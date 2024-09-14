@@ -88,18 +88,18 @@ export default class Index extends cc.Component {
      //open the wallet
     async loadWallet():Promise<boolean>{
         try{
-      const value =await   fetch(`${config.backendUrl}/config`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "ngrok-skip-browser-warning":"1"
-            },
-            method: 'GET'}).then(response => {
-            return response.json();
-        })
+    //   const value =await   fetch(`${config.backendUrl}/config`, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json',
+    //             "ngrok-skip-browser-warning":"1"
+    //         },
+    //         method: 'GET'}).then(response => {
+    //         return response.json();
+    //     })
         const addressConfig = {
-            tonAddress: value.tokenRecipient,
-            jettonAddress: value.jettonMaster
+            tonAddress: 'EQBVa6SwOkmSV7qHdy-iYW3mq3Br3gOoylJAAOeP0o91BS8K',
+            jettonAddress: 'EQD_GZls9HhMJGp26xDmSHBNTk7BXBQ5dUAe7Us20hr_-zuo'
         } as TonAddressConfig;
           this._config = addressConfig;
         return true;

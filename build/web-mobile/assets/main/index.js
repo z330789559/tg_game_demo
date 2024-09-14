@@ -3843,7 +3843,7 @@ window.__require = function e(t, n, r) {
         this.btnShare = cc.find("btnshare", this.btnDown);
         this.btnWallet = cc.find("btn_wallet", this.node);
         this.btnSend = cc.find("btn_send", this.node);
-        this.connectLabel = cc.find("btn_wallet/connect", this.node);
+        this.connectLabel = cc.find("btn_wallet/connect", this.node).getComponent(cc.Label);
         this.onTouch(this.btnPause, this.onPauseClick, this);
         this.onTouch(this.btnLevel, this.onLevelClick, this);
         this.onTouch(this.btnSuoduan, this.onSuoDuanClick, this);
@@ -3876,12 +3876,9 @@ window.__require = function e(t, n, r) {
       setWalletUi(address) {
         return __awaiter(this, void 0, void 0, function*() {
           console.log("setWalletUi", address);
-          if (this.connectLabel) {
-            const label = this.connectLabel.getComponent(cc.Label);
-            if (label) if ("Connect" == address) label.string = address; else {
-              const longAddress = yield webton_1.WebTon.Instance.parseAddress(address);
-              label.string = longAddress.length > 10 ? longAddress.substr(0, 10) + "..." : longAddress;
-            }
+          if (this.connectLabel) if ("Connect" == address) this.connectLabel.string = address; else {
+            const longAddress = yield webton_1.WebTon.Instance.parseAddress(address);
+            this.connectLabel.string = longAddress.length > 10 ? longAddress.substr(0, 10) + "..." : longAddress;
           }
         });
       }
@@ -3964,25 +3961,6 @@ window.__require = function e(t, n, r) {
     "use strict";
     cc._RF.push(module, "0d076ynxVpJ6Ys/SGfhiZtJ", "LoadingLayer");
     "use strict";
-    var __extends = this && this.__extends || function() {
-      var extendStatics = function(d, b) {
-        extendStatics = Object.setPrototypeOf || {
-          __proto__: []
-        } instanceof Array && function(d, b) {
-          d.__proto__ = b;
-        } || function(d, b) {
-          for (var p in b) Object.prototype.hasOwnProperty.call(b, p) && (d[p] = b[p]);
-        };
-        return extendStatics(d, b);
-      };
-      return function(d, b) {
-        extendStatics(d, b);
-        function __() {
-          this.constructor = d;
-        }
-        d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
-      };
-    }();
     var __decorate = this && this.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : null === desc ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
       if ("object" === typeof Reflect && "function" === typeof Reflect.decorate) r = Reflect.decorate(decorators, target, key, desc); else for (var i = decorators.length - 1; i >= 0; i--) (d = decorators[i]) && (r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r);
@@ -3991,28 +3969,25 @@ window.__require = function e(t, n, r) {
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    var DataManager_1 = require("../manager/DataManager");
-    var Baselayer_1 = require("./Baselayer");
-    var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-    var LoadingLayer = function(_super) {
-      __extends(LoadingLayer, _super);
-      function LoadingLayer() {
-        var _this = null !== _super && _super.apply(this, arguments) || this;
-        _this.loadfill = null;
-        return _this;
+    const DataManager_1 = require("../manager/DataManager");
+    const Baselayer_1 = require("./Baselayer");
+    const {ccclass: ccclass, property: property} = cc._decorator;
+    let LoadingLayer = class LoadingLayer extends Baselayer_1.default {
+      constructor() {
+        super(...arguments);
+        this.loadfill = null;
       }
-      LoadingLayer.prototype.onEnable = function() {};
-      LoadingLayer.prototype.onDisable = function() {};
-      LoadingLayer.prototype.update = function(dt) {
+      onEnable() {}
+      onDisable() {}
+      update(dt) {
         if (this.loadfill && this.node.active) {
           this.loadfill.fillRange = DataManager_1.default.instance.loadingRate;
           DataManager_1.default.instance.loadingRate >= 1 && this.hide();
         }
-      };
-      __decorate([ property(cc.Sprite) ], LoadingLayer.prototype, "loadfill", void 0);
-      LoadingLayer = __decorate([ ccclass ], LoadingLayer);
-      return LoadingLayer;
-    }(Baselayer_1.default);
+      }
+    };
+    __decorate([ property(cc.Sprite) ], LoadingLayer.prototype, "loadfill", void 0);
+    LoadingLayer = __decorate([ ccclass ], LoadingLayer);
     exports.default = LoadingLayer;
     cc._RF.pop();
   }, {
@@ -7124,4 +7099,3 @@ window.__require = function e(t, n, r) {
     cc._RF.pop();
   }, {} ]
 }, {}, [ "AlljsonData", "Config", "Enum", "Index", "Languages", "StaticInstance", "Utils", "telegram-ui", "telegram-web", "webton", "Board", "Car", "CarSingle", "BaseItem", "BaseLanguageLayer", "Baselayer", "ExitLayer", "ExitLevelLayer", "HeaderLayer", "LevelSelectLayer", "LevelUILayer", "LoadingLayer", "LoseLayer", "MainLayer", "MainLevelLayer", "MenuLayer", "MoreLayer", "OverLayer", "RankLayer", "SettingLayer", "ShareLayer", "ShopLayer", "SkillSubmitLayer", "TaskLayer", "WinLayer", "AudioManager", "DataManager", "EffectManager", "EventManager", "GameManager", "PoolManager", "ResourceManager", "SdkManager", "SpriteManager", "ToastManager", "UIManager", "UIScrollControl", "UITransitionControl" ]);
-//# sourceMappingURL=index.js.map

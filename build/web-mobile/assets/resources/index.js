@@ -26,4 +26,3 @@
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })({}, {}, []);
-//# sourceMappingURL=index.js.map
