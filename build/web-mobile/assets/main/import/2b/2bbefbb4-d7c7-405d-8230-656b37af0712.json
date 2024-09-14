@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "a0jPLxo3NHYon/+CU9xOC8"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "btnshare1",
+      "rect": [
+        1,
+        2,
+        127,
+        126
+      ],
+      "offset": [
+        0.5,
+        -1
+      ],
+      "originalSize": [
+        128,
+        128
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

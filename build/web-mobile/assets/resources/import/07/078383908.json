@@ -1,0 +1,588 @@
+[
+  1,
+  [
+    "85olwsMAdJGag4iBdHfVvm",
+    "d1/09iiyBPeatMZZQ9fKf/",
+    "9aGnghm3RJP6SDqrJZlDQd",
+    "21g29ulURGRYIyaozuOvPY",
+    "02/z1/QLBINqpkJpKbaaFe",
+    "159R7r9rBD+4Z/HTNme0Eo",
+    "4e05JY4MRAyZs1dLzqEKV3",
+    "bd856WQMRKRKZhPFmjqPnt",
+    "bboUyIiZJK7rzh1pZB857n",
+    "2dqfkCK5VOqZYjzjno6Upy",
+    "6a1ov89IlMF5rJ2xMUKPnG",
+    "3agBiGbhRJmayZFara0afL",
+    "20W+yjW75HF4UAvOJ99Q2s",
+    "aa2jNnmzlOmZioDa7VrGgA"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    [
+      [
+        {
+          "name": "lvdi",
+          "rect": [
+            0,
+            0,
+            751,
+            226
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            751,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        {
+          "name": "daibi",
+          "rect": [
+            0,
+            8,
+            210,
+            78
+          ],
+          "offset": [
+            0,
+            1
+          ],
+          "originalSize": [
+            210,
+            96
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        {
+          "name": "tili",
+          "rect": [
+            2,
+            0,
+            187,
+            96
+          ],
+          "offset": [
+            1,
+            0
+          ],
+          "originalSize": [
+            189,
+            96
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    [
+      [
+        {
+          "name": "yaoshi",
+          "rect": [
+            0,
+            5,
+            194,
+            86
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            194,
+            96
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [
+        {
+          "name": "bg_panel",
+          "rect": [
+            0,
+            0,
+            450,
+            450
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            450,
+            450
+          ],
+          "capInsets": [
+            25,
+            25,
+            25,
+            25
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        {
+          "name": "btnshare",
+          "rect": [
+            0,
+            0,
+            127,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            127,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        {
+          "name": "bt_4",
+          "rect": [
+            0,
+            1,
+            210,
+            88
+          ],
+          "offset": [
+            0,
+            3
+          ],
+          "originalSize": [
+            210,
+            96
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        6
+      ]
+    ],
+    [
+      [
+        {
+          "name": "bt_2",
+          "rect": [
+            0,
+            0,
+            206,
+            95
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            206,
+            95
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        7
+      ]
+    ],
+    [
+      [
+        {
+          "name": "btnshop",
+          "rect": [
+            1,
+            0,
+            126,
+            128
+          ],
+          "offset": [
+            0.5,
+            0
+          ],
+          "originalSize": [
+            127,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        8
+      ]
+    ],
+    [
+      [
+        {
+          "name": "btnrenwu",
+          "rect": [
+            0,
+            0,
+            127,
+            127
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            127,
+            127
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        9
+      ]
+    ],
+    [
+      [
+        {
+          "name": "btn_6",
+          "rect": [
+            1,
+            0,
+            120,
+            37
+          ],
+          "offset": [
+            0.5,
+            0
+          ],
+          "originalSize": [
+            121,
+            37
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        10
+      ]
+    ],
+    [
+      [
+        {
+          "name": "bt_5",
+          "rect": [
+            0,
+            0,
+            207,
+            88
+          ],
+          "offset": [
+            0,
+            4
+          ],
+          "originalSize": [
+            207,
+            96
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        11
+      ]
+    ],
+    [
+      [
+        {
+          "name": "ditu",
+          "rect": [
+            0,
+            0,
+            91,
+            87
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            91,
+            87
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        12
+      ]
+    ],
+    [
+      [
+        {
+          "name": "btnzhuanqv",
+          "rect": [
+            1,
+            0,
+            126,
+            127
+          ],
+          "offset": [
+            0.5,
+            0
+          ],
+          "originalSize": [
+            127,
+            127
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        13
+      ]
+    ]
+  ]
+]
