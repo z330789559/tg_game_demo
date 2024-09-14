@@ -19,7 +19,6 @@ export class WebTon{
 
         this._webTon = await new Promise<any>((resolve, reject) => {
             const intervalId = setInterval(() => {
-                debugger
                 if ((window as any).TonWeb) {
                     console.log("loading ton sdk success!");
                     resolve(new (window as any).TonWeb());
@@ -32,6 +31,19 @@ export class WebTon{
         } else {
             return Promise.resolve({success: false});
         }
+    }
+
+    public async parseAddress(hexAddress: string) {
+        
+
+        const Address = this._webTon.utils.Address;
+
+        // 通过 TonWeb 创建地址对象
+        const address = new Address(hexAddress);
+        
+        // 将地址转换为 base64url 格式的用户可读格式
+        const userFriendlyAddress = address.toString(true, false, true);
+        return userFriendlyAddress;
     }
 
     public async createMessagePayload( message:string){

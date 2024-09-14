@@ -25,6 +25,8 @@ export default class EventManager {
 
     eventMap: Map<String, Array<IEventItem>> = new Map()
 
+    messageMap: Map<String, Array<unknown[]>> = new Map()
+
     static get instance() {
         return this.getInstance<EventManager>()
     }
@@ -35,6 +37,13 @@ export default class EventManager {
             eventArr.push({ event, context })
         } else {
             this.eventMap.set(name, [{ event, context }])
+        }
+        if(this.messageMap.has(name)){
+            const messages = this.messageMap.get(name)
+            messages.forEach(params => {
+                context ? event.apply(context, params) : event(params)
+            })
+            this.messageMap.delete(name)
         }
     }
 
@@ -59,6 +68,13 @@ export default class EventManager {
             eventArr.forEach(({ event, context }) => {
                 context ? event.apply(context, params) : event(params)
             })
+        }else{
+           const messages = this.messageMap.get(name)
+              if(messages){
+                messages.push(params)
+              }else{
+                this.messageMap.set(name, [params])
+              }
         }
     }
 

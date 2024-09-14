@@ -34,7 +34,6 @@ export default class LevelUILayer extends BaseLanguageLayer {
     onLoad() {
    
         super.onLoad();
-        EventManager.instance.on(EventType.CONNECT_COMPLETE, this.subscribe, this);
         this.btnPause = cc.find('btn_pause', this.node)
         this.btnLevel = cc.find('btn_level', this.node)
         this.btnSkills = cc.find('skills', this.node);
@@ -61,6 +60,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
         this.onTouch(this.btnWallet, this.openWallet, this);
         this.onTouch(this.btnSend, this.sendTon, this);
         EventManager.instance.on(EventType.OPEN_LEVEL_BTN, this.openLevelBtn, this);
+        EventManager.instance.on(EventType.CONNECT_COMPLETE, this.subscribe, this);
 
     }
 
@@ -80,14 +80,22 @@ export default class LevelUILayer extends BaseLanguageLayer {
     private subscribe(success: boolean) {
          console.log('subscribe success');
          this.updateConnect();
-
-
     }
-    private setWalletUi(address:string){
+    private async setWalletUi(address:string){
         console.log('setWalletUi',address);
+
         if(this.connectLabel){
-            this.connectLabel.string =address;
+          const label =  this.connectLabel.getComponent(cc.Label); ;
+            if(label){
+                if(address=="Connect"){
+                label.string = address;
+                }else{
+                    const longAddress = await WebTon.Instance.parseAddress(address);
+                  
+                    label.string =  longAddress.length>10?longAddress.substr(0,10)+'...':longAddress;
+                }
         }
+    }
     }
 
      private async  openWallet() {
@@ -104,6 +112,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
 
     public updateConnect() {
         console.log('updateConnect');
+        debugger
         if (TonConnectUi.Instance.isConnected()) {
             const address = TonConnectUi.Instance.account().address;
             const add=TonConnectUi.Instance.parseRaw(address);
@@ -111,7 +120,7 @@ export default class LevelUILayer extends BaseLanguageLayer {
             this.setWalletUi(add);
                 
         } else {
-            this.setWalletUi("Connect1");
+            this.setWalletUi("Connect");
         }
     }
     onPauseClick() {

@@ -88,6 +88,7 @@ export class TonConnectUi {
     }
     public  subscribeWallet(updateConnect:()=>void) {
         console.log("subscribe wallet");
+        updateConnect();
         if(this._tgConnect) {
         const unsubscribeModal = this._tgConnect.onStatusChange(state => {
             console.log("model state changed! : ", state);
@@ -122,6 +123,10 @@ export class TonConnectUi {
     }
 
     public async sendTransaction(args:Transaction ) {
+        if(!this._tgConnect||this._tgConnect.connected==false){
+            console.error('ton connect not connected');
+            throw new Error('ton connect not connected');
+        }
     const transaction = {
         validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
         messages: [
