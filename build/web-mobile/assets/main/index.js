@@ -2782,6 +2782,25 @@ window.__require = function e(t, n, r) {
     "use strict";
     cc._RF.push(module, "bd1a12oV81Cu7bBxEAPpr3S", "Index");
     "use strict";
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || {
+          __proto__: []
+        } instanceof Array && function(d, b) {
+          d.__proto__ = b;
+        } || function(d, b) {
+          for (var p in b) Object.prototype.hasOwnProperty.call(b, p) && (d[p] = b[p]);
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
     var __decorate = this && this.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : null === desc ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
       if ("object" === typeof Reflect && "function" === typeof Reflect.decorate) r = Reflect.decorate(decorators, target, key, desc); else for (var i = decorators.length - 1; i >= 0; i--) (d = decorators[i]) && (r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r);
@@ -2814,116 +2833,212 @@ window.__require = function e(t, n, r) {
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
+    var __generator = this && this.__generator || function(thisArg, body) {
+      var _ = {
+        label: 0,
+        sent: function() {
+          if (1 & t[0]) throw t[1];
+          return t[1];
+        },
+        trys: [],
+        ops: []
+      }, f, y, t, g;
+      return g = {
+        next: verb(0),
+        throw: verb(1),
+        return: verb(2)
+      }, "function" === typeof Symbol && (g[Symbol.iterator] = function() {
+        return this;
+      }), g;
+      function verb(n) {
+        return function(v) {
+          return step([ n, v ]);
+        };
+      }
+      function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+          if (f = 1, y && (t = 2 & op[0] ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 
+          0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          (y = 0, t) && (op = [ 2 & op[0], t.value ]);
+          switch (op[0]) {
+           case 0:
+           case 1:
+            t = op;
+            break;
+
+           case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+           case 5:
+            _.label++;
+            y = op[1];
+            op = [ 0 ];
+            continue;
+
+           case 7:
+            op = _.ops.pop();
+            _.trys.pop();
+            continue;
+
+           default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (6 === op[0] || 2 === op[0])) {
+              _ = 0;
+              continue;
+            }
+            if (3 === op[0] && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+            if (6 === op[0] && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+              _.ops.push(op);
+              break;
+            }
+            t[2] && _.ops.pop();
+            _.trys.pop();
+            continue;
+          }
+          op = body.call(thisArg, _);
+        } catch (e) {
+          op = [ 6, e ];
+          y = 0;
+        } finally {
+          f = t = 0;
+        }
+        if (5 & op[0]) throw op[1];
+        return {
+          value: op[0] ? op[1] : void 0,
+          done: true
+        };
+      }
+    };
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    const StaticInstance_1 = require("./StaticInstance");
-    const Enum_1 = require("./Enum");
-    const AudioManager_1 = require("./manager/AudioManager");
-    const DataManager_1 = require("./manager/DataManager");
-    const ResourceManager_1 = require("./manager/ResourceManager");
-    const SdkManager_1 = require("./manager/SdkManager");
-    const EventManager_1 = require("./manager/EventManager");
-    const Config_1 = require("./Config");
-    const telegram_web_1 = require("./cocos-telegram-miniapps/telegram-web");
-    const telegram_ui_1 = require("./cocos-telegram-miniapps/telegram-ui");
-    const webton_1 = require("./cocos-telegram-miniapps/webton");
-    const {ccclass: ccclass, property: property} = cc._decorator;
-    let Index = class Index extends cc.Component {
-      constructor() {
-        super(...arguments);
-        this.collisionManagerDebug = false;
-        this._bTonInit = false;
+    var StaticInstance_1 = require("./StaticInstance");
+    var Enum_1 = require("./Enum");
+    var AudioManager_1 = require("./manager/AudioManager");
+    var DataManager_1 = require("./manager/DataManager");
+    var ResourceManager_1 = require("./manager/ResourceManager");
+    var SdkManager_1 = require("./manager/SdkManager");
+    var EventManager_1 = require("./manager/EventManager");
+    var Config_1 = require("./Config");
+    var telegram_web_1 = require("./cocos-telegram-miniapps/telegram-web");
+    var telegram_ui_1 = require("./cocos-telegram-miniapps/telegram-ui");
+    var webton_1 = require("./cocos-telegram-miniapps/webton");
+    var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+    var Index = function(_super) {
+      __extends(Index, _super);
+      function Index() {
+        var _this = null !== _super && _super.apply(this, arguments) || this;
+        _this.collisionManagerDebug = false;
+        _this._bTonInit = false;
+        return _this;
       }
-      onLoad() {
+      Index.prototype.onLoad = function() {
+        var _this = this;
         this.node.getChildByName("UI").opacity = 255;
-        cc.view.setResizeCallback(() => this.responsive());
+        cc.view.setResizeCallback(function() {
+          return _this.responsive();
+        });
         this.responsive();
-        telegram_web_1.TelegramWebApp.Instance.init().then(res => {
+        telegram_web_1.TelegramWebApp.Instance.init().then(function(res) {
           console.log("telegram web app init : ", res.success);
-        }).catch(err => {
+        }).catch(function(err) {
           console.error(err);
         });
-        this.loadWallet().then(res => {
+        this.loadWallet().then(function(res) {
           if (!res) {
             console.error("load wallet failed!");
             return;
           }
-          this._initTonUI();
-        }).catch(err => {
+          _this._initTonUI();
+        }).catch(function(err) {
           console.error(err);
         });
-        webton_1.WebTon.Instance.init().then(res => {
+        webton_1.WebTon.Instance.init().then(function(res) {
           console.log("web ton init : ", res.success);
         });
         DataManager_1.default.instance.loadingRate = 0;
-        const colManager = cc.director.getCollisionManager();
+        var colManager = cc.director.getCollisionManager();
         colManager.enabled = true;
         this.collisionManagerDebug && (colManager.enabledDebugDraw = true);
-      }
-      _initTonUI() {
-        return __awaiter(this, void 0, void 0, function*() {
-          telegram_ui_1.TonConnectUi.Instance.init("https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json", this._config.tonAddress, "en").then(res => {
-            console.log("ton connect ui init : ", res.success);
-            telegram_ui_1.TonConnectUi.Instance.subscribeWallet(() => {
-              console.log("wallet change");
-              EventManager_1.default.instance.emit(EventManager_1.EventType.CONNECT_COMPLETE, res.success);
+      };
+      Index.prototype._initTonUI = function() {
+        return __awaiter(this, void 0, void 0, function() {
+          return __generator(this, function(_a) {
+            telegram_ui_1.TonConnectUi.Instance.init("https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json", this._config.tonAddress, "en").then(function(res) {
+              console.log("ton connect ui init : ", res.success);
+              telegram_ui_1.TonConnectUi.Instance.subscribeWallet(function() {
+                console.log("wallet change");
+                EventManager_1.default.instance.emit(EventManager_1.EventType.CONNECT_COMPLETE, res.success);
+              });
             });
+            return [ 2 ];
           });
         });
-      }
-      isConnected() {
+      };
+      Index.prototype.isConnected = function() {
         if (!telegram_ui_1.TonConnectUi.Instance) {
           console.error("ton ui not inited!");
           return false;
         }
         return telegram_ui_1.TonConnectUi.Instance.isConnected();
-      }
-      openModal() {
-        return __awaiter(this, void 0, void 0, function*() {
-          if (!telegram_ui_1.TonConnectUi.Instance) return;
-          console.log("open modal", this.isConnected());
-          telegram_ui_1.TonConnectUi.Instance.isConnected() ? telegram_ui_1.TonConnectUi.Instance.disconnect() : telegram_ui_1.TonConnectUi.Instance.openModal();
+      };
+      Index.prototype.openModal = function() {
+        return __awaiter(this, void 0, void 0, function() {
+          return __generator(this, function(_a) {
+            if (!telegram_ui_1.TonConnectUi.Instance) return [ 2 ];
+            console.log("open modal", this.isConnected());
+            telegram_ui_1.TonConnectUi.Instance.isConnected() ? telegram_ui_1.TonConnectUi.Instance.disconnect() : telegram_ui_1.TonConnectUi.Instance.openModal();
+            return [ 2 ];
+          });
         });
-      }
-      loadWallet() {
-        return __awaiter(this, void 0, void 0, function*() {
-          try {
-            const value = yield fetch(`${Config_1.config.backendUrl}/config`, {
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                "ngrok-skip-browser-warning": "1"
-              },
-              method: "GET"
-            }).then(response => response.json());
-            const addressConfig = {
-              tonAddress: value.tokenRecipient,
-              jettonAddress: value.jettonMaster
-            };
-            this._config = addressConfig;
-            return true;
-          } catch (e) {
-            console.error("request config failed!", e);
-            return false;
-          }
+      };
+      Index.prototype.loadWallet = function() {
+        return __awaiter(this, void 0, Promise, function() {
+          var addressConfig;
+          return __generator(this, function(_a) {
+            try {
+              addressConfig = {
+                tonAddress: "EQBVa6SwOkmSV7qHdy-iYW3mq3Br3gOoylJAAOeP0o91BS8K",
+                jettonAddress: "EQD_GZls9HhMJGp26xDmSHBNTk7BXBQ5dUAe7Us20hr_-zuo"
+              };
+              this._config = addressConfig;
+              return [ 2, true ];
+            } catch (e) {
+              console.error("request config failed!", e);
+              return [ 2, false ];
+            }
+            return [ 2 ];
+          });
         });
-      }
-      onBuyWithTon(amount) {
-        const tonTransferReq = {
+      };
+      Index.prototype.onBuyWithTon = function(amount) {
+        var tonTransferReq = {
           amount: telegram_ui_1.TonConnectUi.Instance.toNano(amount)
         };
         telegram_ui_1.TonConnectUi.Instance.sendTransaction(tonTransferReq);
-      }
-      onShare() {
-        let userId = "";
-        const userData = telegram_web_1.TelegramWebApp.Instance.getTelegramUser();
+      };
+      Index.prototype.onShare = function() {
+        var userId = "";
+        var userData = telegram_web_1.TelegramWebApp.Instance.getTelegramUser();
         console.log("userData : ", userData);
         userData && (userId = userData.id + "");
-        telegram_web_1.TelegramWebApp.Instance.share(`${Config_1.config.URL_YOU_ASSIGNED_TO_YOUR_APP}&user=${userId}`, "Invite you to play a very interesting game");
-      }
-      onBuyWithStars(params) {
-        fetch(`${Config_1.config.backendUrl}/create-stars-invoice`, {
+        telegram_web_1.TelegramWebApp.Instance.share(Config_1.config.URL_YOU_ASSIGNED_TO_YOUR_APP + "&user=" + userId, "Invite you to play a very interesting game");
+      };
+      Index.prototype.onBuyWithStars = function(params) {
+        fetch(Config_1.config.backendUrl + "/create-stars-invoice", {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -2937,71 +3052,97 @@ window.__require = function e(t, n, r) {
             amount: params.amount,
             product: params.product
           })
-        }).then(response => response.json()).then(value => {
+        }).then(function(response) {
+          return response.json();
+        }).then(function(value) {
           console.log("starts invoice : ", value);
-          value.ok ? telegram_web_1.TelegramWebApp.Instance.openInvoice(value.invoiceLink, result => {
+          value.ok ? telegram_web_1.TelegramWebApp.Instance.openInvoice(value.invoiceLink, function(result) {
             console.log("buy stars : ", result);
-          }).catch(error => {
+          }).catch(function(error) {
             console.error("open invoice error : ", error);
           }) : console.error("request config failed!");
         });
-      }
-      start() {
-        return __awaiter(this, void 0, void 0, function*() {
-          for (const index in Enum_1.ENUM_RESOURCE_TYPE) {
-            const resource = Enum_1.ENUM_RESOURCE_TYPE[index];
-            yield ResourceManager_1.default.instance.loadRes(resource);
-          }
-          DataManager_1.default.instance.restore();
-          StaticInstance_1.StaticInstance.uiManager.init();
-          AudioManager_1.default.instance.playMusic();
-          SdkManager_1.default.instance.initAudioEndListener();
-          SdkManager_1.default.instance.passiveShare();
-          SdkManager_1.default.instance.getRank();
-          SdkManager_1.default.instance.initBannerAd();
-          SdkManager_1.default.instance.initInterstitialAd();
-          SdkManager_1.default.instance.initVideoAd();
-          SdkManager_1.default.instance.initCustomRowAd();
-          SdkManager_1.default.instance.initCustomColAd();
-          this.onPowerIncrease();
-          StaticInstance_1.StaticInstance.uiManager.toggle(Enum_1.ENUM_UI_TYPE.LEVEL_UI, true);
-          StaticInstance_1.StaticInstance.uiManager.toggle(Enum_1.ENUM_UI_TYPE.LEVEL_SELECT, true);
+      };
+      Index.prototype.start = function() {
+        return __awaiter(this, void 0, void 0, function() {
+          var _a, _b, _i, index, resource;
+          return __generator(this, function(_c) {
+            switch (_c.label) {
+             case 0:
+              _a = [];
+              for (_b in Enum_1.ENUM_RESOURCE_TYPE) _a.push(_b);
+              _i = 0;
+              _c.label = 1;
+
+             case 1:
+              if (!(_i < _a.length)) return [ 3, 4 ];
+              index = _a[_i];
+              resource = Enum_1.ENUM_RESOURCE_TYPE[index];
+              return [ 4, ResourceManager_1.default.instance.loadRes(resource) ];
+
+             case 2:
+              _c.sent();
+              _c.label = 3;
+
+             case 3:
+              _i++;
+              return [ 3, 1 ];
+
+             case 4:
+              DataManager_1.default.instance.restore();
+              StaticInstance_1.StaticInstance.uiManager.init();
+              AudioManager_1.default.instance.playMusic();
+              SdkManager_1.default.instance.initAudioEndListener();
+              SdkManager_1.default.instance.passiveShare();
+              SdkManager_1.default.instance.getRank();
+              SdkManager_1.default.instance.initBannerAd();
+              SdkManager_1.default.instance.initInterstitialAd();
+              SdkManager_1.default.instance.initVideoAd();
+              SdkManager_1.default.instance.initCustomRowAd();
+              SdkManager_1.default.instance.initCustomColAd();
+              this.onPowerIncrease();
+              StaticInstance_1.StaticInstance.uiManager.toggle(Enum_1.ENUM_UI_TYPE.LEVEL_UI, true);
+              StaticInstance_1.StaticInstance.uiManager.toggle(Enum_1.ENUM_UI_TYPE.LEVEL_SELECT, true);
+              return [ 2 ];
+            }
+          });
         });
-      }
-      responsive() {
-        const designSize = cc.view.getDesignResolutionSize();
-        const viewSize = cc.view.getFrameSize();
-        const setFitWidth = () => {
+      };
+      Index.prototype.responsive = function() {
+        var designSize = cc.view.getDesignResolutionSize();
+        var viewSize = cc.view.getFrameSize();
+        var setFitWidth = function() {
           cc.Canvas.instance.fitHeight = false;
           cc.Canvas.instance.fitWidth = true;
         };
-        const setFitHeight = () => {
+        var setFitHeight = function() {
           cc.Canvas.instance.fitHeight = true;
           cc.Canvas.instance.fitWidth = false;
         };
-        const setFitBoth = () => {
+        var setFitBoth = function() {
           cc.Canvas.instance.fitHeight = true;
           cc.Canvas.instance.fitWidth = true;
         };
-        const designRatio = designSize.width / designSize.height;
-        const viewRatio = viewSize.width / viewSize.height;
+        var designRatio = designSize.width / designSize.height;
+        var viewRatio = viewSize.width / viewSize.height;
         designRatio < 1 ? viewRatio < 1 ? viewRatio > designRatio ? setFitBoth() : setFitWidth() : setFitBoth() : viewRatio > 1 ? viewRatio < designRatio ? setFitBoth() : setFitHeight() : setFitBoth();
-      }
-      onPowerIncrease() {
+      };
+      Index.prototype.onPowerIncrease = function() {
         if (DataManager_1.default.instance.power < 5) {
-          const now = new Date().getTime();
-          const seconds = Math.floor((now - DataManager_1.default.instance.lastPowerUpdateTime) / 1e3);
-          const powers = Math.floor(seconds / DataManager_1.default.instance.powerRefreshTime);
+          var now = new Date().getTime();
+          var seconds = Math.floor((now - DataManager_1.default.instance.lastPowerUpdateTime) / 1e3);
+          var powers = Math.floor(seconds / DataManager_1.default.instance.powerRefreshTime);
           if (DataManager_1.default.instance.power + powers >= 5) {
             DataManager_1.default.instance.power = 5;
             DataManager_1.default.instance.lastPowerRefreshTime = 0;
           } else DataManager_1.default.instance.power += powers;
           DataManager_1.default.instance.save();
         }
-      }
-    };
-    __decorate([ property ], Index.prototype, "collisionManagerDebug", void 0);
-    Index = __decorate([ ccclass ], Index);
+      };
+      __decorate([ property ], Index.prototype, "collisionManagerDebug", void 0);
+      Index = __decorate([ ccclass ], Index);
+      return Index;
+    }(cc.Component);
     exports.default = Index;
     cc._RF.pop();
   }, {
