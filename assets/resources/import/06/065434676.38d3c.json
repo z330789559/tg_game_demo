@@ -1,0 +1,219 @@
+[
+  1,
+  [
+    "a3rJcH7pdPja3DZVsSHUpH",
+    "46J5DFEI9GHK+3Q6ik327e",
+    "89BMamCIZEH4lHPoMxYDjl",
+    "626N5QlelH57C2xc1AE3XX",
+    "92y542qalOe606KyenQwvZ"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    [
+      [
+        {
+          "name": "bg",
+          "rect": [
+            2,
+            1,
+            628,
+            661
+          ],
+          "offset": [
+            1,
+            -0.5
+          ],
+          "originalSize": [
+            630,
+            662
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        {
+          "name": "xiayiguan",
+          "rect": [
+            2,
+            1,
+            226,
+            92
+          ],
+          "offset": [
+            1,
+            0.5
+          ],
+          "originalSize": [
+            228,
+            95
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        {
+          "name": "winner-icon@2x",
+          "rect": [
+            5,
+            0,
+            533,
+            306
+          ],
+          "offset": [
+            0.5,
+            0
+          ],
+          "originalSize": [
+            542,
+            306
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    [
+      [
+        {
+          "name": "daibi",
+          "rect": [
+            0,
+            0,
+            57,
+            62
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            57,
+            62
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [
+        {
+          "name": "fenxiang",
+          "rect": [
+            0,
+            0,
+            227,
+            90
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            227,
+            90
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ]
+  ]
+]

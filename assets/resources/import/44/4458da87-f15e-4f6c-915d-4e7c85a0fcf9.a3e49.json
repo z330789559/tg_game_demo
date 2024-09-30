@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "37lrmpzs1BxI6YdxTmpnjj"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "btn_close",
+      "rect": [
+        2,
+        2,
+        60,
+        59
+      ],
+      "offset": [
+        1,
+        -1
+      ],
+      "originalSize": [
+        62,
+        61
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

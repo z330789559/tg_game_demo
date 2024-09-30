@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "2eR7zCQ79NE6zGZ8D83lzp"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "hpicon@3x",
+      "rect": [
+        1,
+        1,
+        31,
+        49
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        33,
+        50
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "8bi71lb5xA2KDzwjR5lKiB"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "wancheng",
+      "rect": [
+        0,
+        0,
+        107,
+        84
+      ],
+      "offset": [
+        -0.5,
+        0
+      ],
+      "originalSize": [
+        108,
+        84
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

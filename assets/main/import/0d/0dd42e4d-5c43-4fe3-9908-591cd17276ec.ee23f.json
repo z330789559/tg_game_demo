@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "cbu4mr/FFLr4+yorbGXvYI"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "loading_bg",
+      "rect": [
+        0,
+        1,
+        687,
+        42
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        687,
+        43
+      ],
+      "capInsets": [
+        4,
+        0,
+        4,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

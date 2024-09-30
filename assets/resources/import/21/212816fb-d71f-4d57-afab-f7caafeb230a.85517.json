@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "cb2JWMuFRCsZ2hHrkExdx1"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "Slice 7@2x",
+      "rect": [
+        0,
+        1,
+        598,
+        379
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        598,
+        380
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

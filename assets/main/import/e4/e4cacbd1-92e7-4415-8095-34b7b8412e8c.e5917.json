@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "b4Cv8nT/9CRLISZ1aMZZXK"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "btnrenwu1",
+      "rect": [
+        3,
+        0,
+        126,
+        127
+      ],
+      "offset": [
+        1.5,
+        0
+      ],
+      "originalSize": [
+        129,
+        127
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

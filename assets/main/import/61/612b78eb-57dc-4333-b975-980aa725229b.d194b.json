@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "22d0VAD2VGJIhrmorDyb1H"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "jiangli2",
+      "rect": [
+        1,
+        0,
+        130,
+        158
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        131,
+        158
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

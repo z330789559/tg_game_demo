@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "59Eqq3sRhOmJgM3uBliUqi"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "loading_fill",
+      "rect": [
+        0,
+        1,
+        511,
+        38
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        511,
+        39
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "01+HyH0z5Doo9wQQv64nkw"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "btnshop1",
+      "rect": [
+        2,
+        2,
+        126,
+        127
+      ],
+      "offset": [
+        1,
+        -1
+      ],
+      "originalSize": [
+        128,
+        129
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

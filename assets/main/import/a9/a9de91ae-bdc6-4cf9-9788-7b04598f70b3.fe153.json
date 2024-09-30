@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "f9Cw4OCJ5Da6Yu+o7VnBFC"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "power",
+      "rect": [
+        2,
+        1,
+        62,
+        49
+      ],
+      "offset": [
+        1,
+        0.5
+      ],
+      "originalSize": [
+        64,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

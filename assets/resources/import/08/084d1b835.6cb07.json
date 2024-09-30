@@ -1,0 +1,342 @@
+[
+  1,
+  [
+    "f5pfFY5FVAy7nBa+a1TvAg",
+    "60MgEZnqNGFbCz+l0ZZPKt",
+    "b2aMVkvaVD77etCF0NkXwt",
+    "3avOWjET5Jg7ZafvnpRX5v",
+    "7ao2NpSrVAxY9oWW1f2Ig3",
+    "2cVS9UNjxNurJOK0UYBNNJ",
+    "86k8oA5MdLg5ON+NkBwmdC",
+    "fcDFRFxn1Pjo9g6c69JOX8"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    [
+      [
+        {
+          "name": "road_asphalt46",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        {
+          "name": "road_asphalt69",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            31,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        {
+          "name": "road_asphalt22",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    [
+      [
+        {
+          "name": "road_asphalt71",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [
+        {
+          "name": "land_grass11",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        {
+          "name": "road_asphalt45",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        {
+          "name": "land_sand12",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        6
+      ]
+    ],
+    [
+      [
+        {
+          "name": "road_asphalt04",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "originalSize": [
+            128,
+            128
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        7
+      ]
+    ]
+  ]
+]

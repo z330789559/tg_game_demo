@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "d3cqOGhBdADLiF7SK46UOr"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "task3",
+      "rect": [
+        1,
+        0,
+        32,
+        33
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        33,
+        33
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]
