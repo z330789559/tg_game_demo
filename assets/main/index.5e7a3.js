@@ -5280,7 +5280,7 @@ window.__require = function e(t, n, r) {
       function Config() {}
       Config_1 = Config;
       var Config_1;
-      Config.version = "V1.0.47";
+      Config.version = "V1.0.48";
       Config.appName = "htbtest2";
       Config.wss = "wss://mc-api.inatest.xyz/ws";
       Config.httpHost = "https://mc-api.inatest.xyz/api";
@@ -14174,6 +14174,7 @@ window.__require = function e(t, n, r) {
       };
       TelegramWebApp.prototype.expand = function() {
         try {
+          console.log("\u6269\u5c55\u5230\u6700\u5927\u663e\u793a", this._tgWebAppJS.isExpanded());
           if (this._tgWebAppJS.isExpanded()) ; else {
             console.log("\u6269\u5c55\u5230\u6700\u5927\u663e\u793a");
             this._tgWebAppJS.expand();

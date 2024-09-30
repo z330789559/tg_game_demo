@@ -26,7 +26,7 @@ window._CCSettings = {
     ],
     bundleVers: {
         internal: "be8c4",
-        resources: "854f8",
-        main: "d3e22"
+        resources: "1e8ac",
+        main: "5e7a3"
     }
 };
