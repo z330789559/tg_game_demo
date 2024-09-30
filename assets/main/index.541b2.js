@@ -6434,6 +6434,7 @@ window.__require = function e(t, n, r) {
       value: true
     });
     exports.HttpCom = void 0;
+    var telegram_web_1 = require("../cocos-telegram-miniapps/telegram-web");
     var Config_1 = require("../data/Config");
     var EventName_1 = require("../data/EventName");
     var GlobalVar_1 = require("../data/GlobalVar");
@@ -6464,6 +6465,14 @@ window.__require = function e(t, n, r) {
       HttpCom.login = function(inviteCode, cb) {
         console.log(CryptoJS, "CryptoJS");
         var rawData = "query_id=AAGM98MpAwAAAIz3wymrKwwD&user=%7B%22id%22%3A7143159692%2C%22first_name%22%3A%22gugu%22%2C%22last_name%22%3A%22guoer%22%2C%22username%22%3A%22guguwoshiguoer%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1727191103&hash=216ff6f6da7e53d0888fd246c29ba3fc7d6843f1cfd444479f1f04ef022e33c4";
+        if (telegram_web_1.TelegramWebApp.Instance.isTGAvailable()) {
+          rawData = telegram_web_1.TelegramWebApp.Instance.getTelegramWebAppInitData();
+          console.log(rawData, "rawData");
+          if ("" == rawData) {
+            var localRawData = cc.sys.localStorage.getItem("tgRawDataDev");
+            rawData = localRawData || "query_id=AAGM98MpAwAAAIz3wymrKwwD&user=%7B%22id%22%3A7143159692%2C%22first_name%22%3A%22gugu%22%2C%22last_name%22%3A%22guoer%22%2C%22username%22%3A%22guguwoshiguoer%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1727191103&hash=216ff6f6da7e53d0888fd246c29ba3fc7d6843f1cfd444479f1f04ef022e33c4";
+          }
+        }
         var sendData = {
           tgRawData: rawData
         };
@@ -6691,6 +6700,7 @@ window.__require = function e(t, n, r) {
     exports.HttpCom = HttpCom;
     cc._RF.pop();
   }, {
+    "../cocos-telegram-miniapps/telegram-web": "telegram-web",
     "../data/Config": "Config",
     "../data/EventName": "EventName",
     "../data/GlobalVar": "GlobalVar",
@@ -14165,12 +14175,10 @@ window.__require = function e(t, n, r) {
       };
       TelegramWebApp.prototype.expand = function() {
         try {
-          console.log("\u6269\u5c55\u5230\u6700\u5927\u663e\u793a", this._tgWebAppJS.isExpanded());
-          if (this._tgWebAppJS.isExpanded()) ; else {
-            console.log("\u6269\u5c55\u5230\u6700\u5927\u663e\u793a");
-            this._tgWebAppJS.expand();
-          }
+          console.log("\u6269\u5c55\u5230\u6700\u5927\u663e\u793a");
+          this._tgWebAppJS.expand();
         } catch (e) {
+          console.log("expend error", e);
           console.log(e);
         }
       };
